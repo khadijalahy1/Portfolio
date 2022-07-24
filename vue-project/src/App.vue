@@ -2,6 +2,10 @@
 import HomeComponent from './components/mainComponents/HomeComponent.vue'
 import skillsComponent from './components/mainComponents/skillsComponent.vue';
 import ProjectComponent from './components/mainComponents/ProjectComponent.vue';
+import TimeLineComponentVue from './components/mainComponents/TimeLineComponent.vue';
+import AboutComponent from './components/mainComponents/AboutComponent.vue';
+import ContactComponent from './components/mainComponents/ContactComponent.vue';
+import FooterVue from './components/mainComponents/Footer.vue';
 
 </script>
 
@@ -10,6 +14,10 @@ import ProjectComponent from './components/mainComponents/ProjectComponent.vue';
         <HomeComponent />
         <skillsComponent />
         <ProjectComponent/>
+        <TimeLineComponentVue/>
+        <AboutComponent/>
+        <ContactComponent/>
+        <FooterVue/>
       
     </div>
 </template>
@@ -21,6 +29,7 @@ import ProjectComponent from './components/mainComponents/ProjectComponent.vue';
     display: flex;
     flex-direction: column;
     padding-left: 0%;
+    background-color:#D9D9D9 ;
 
 }
 *, html {

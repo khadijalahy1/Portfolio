@@ -8,12 +8,13 @@ export default {
     return {
       windowWidth: window.innerWidth,
       path:"me.jpeg",
+      sizeImg:15,
       labels:[
-        {title:"ABOUT",link:"about"},
-        {title:"SKILLS",link:"skills"},
-        {title:"PROJECTS",link:"projects"},
-        {title:"TIMELINE",link:"timeline"},
-        {title:"RESUME",link:"resume"}
+        {title:"ABOUT",link:"#about"},
+        {title:"SKILLS",link:"#skills"},
+        {title:"PROJECTS",link:"#projects"},
+        {title:"TIMELINE",link:"#timeline"},
+        {title:"RESUME",link:"#resume"}
       ],
       name:"Khadija Al Ahyane",
       greeting:"Welcome To My Portfolio"
@@ -46,7 +47,7 @@ export default {
 
 
 <template>
-<div class="homePageDiv">
+<div class="homePageDiv" id="home">
     <div class="home"> 
         
   </div>
@@ -59,7 +60,7 @@ export default {
     </div>
   
     <div class="me">
-      <ImageContainer path="/me.jpeg" />
+      <ImageContainer path="/me.jpeg"  :size=sizeImg />
       <div class="name2">{{name}}</div>
       <div class="descriptionP">{{greeting}}</div>
     </div>

@@ -1,32 +1,31 @@
 <script setup>
-defineProps({
-  projectName: {
-    type: String,
-    required: true
-  },
-  description:{
-    type:String,
-    required:true   
-  },
-  technologies:{
-    type:String,
-    required:true
-  },
-  projectLink:{
-    type:String,
-    required:true
-  }
-})
-
 </script>
 <script>
 export default {
+    props:{
+        description:{
+            type:String,
+            required:true
+        },
+        title:{
+            type:String,
+            required:true
+        },
+        technologies:{
+            type:String,
+            required:true
+        },
+        link:{
+            type:String,
+            required: true
+        }
+    },
     data(){
         return{
             descItems:[
-                {title:"Description :",content:description},
-                {title:"Technologies :",content:technologies},
-                {title:"Link to Project : ",content:projectLink}
+                {title:"Description :",content:this.description},
+                {title:"Technologies :",content:this.technologies},
+                {title:"Link to Project :",content:this.link}
             ]
         
         }
@@ -40,11 +39,15 @@ export default {
 <template>
 <div class="pop-up">
     <img src="/close.png" class="closeBtn" alt="" @click="()=>{show=!show}">
-    <div class="descTitle">{{projectName}}</div>
+    <div class="descTitle">{{title}}</div>
     <div class="descItems">
-        <div class="descItem" v-for="item in descItems">
-            <div class="itemTitle">{{item.title}}</div>
-            <div class="itemContent">{{item.content}}</div>
+        <div class="descItem" v-for="item in descItems" >
+
+            <div class="itemTitle" v-if="item.content!=''">{{item.title}}</div>
+            <div class="itemContent"  v-if="item.content!='' && item.title!='Link to Project :'">{{item.content}}</div>
+            <div class="itemContent"  v-else-if="item.content!='' && item.title=='Link to Project :'"><a :href="item.content">{{item.content}}</a></div>
+
+
         </div>        
     </div>
 </div>

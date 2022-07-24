@@ -30,4 +30,7 @@ defineProps({
 
 
 }
+.label:hover{
+  color: #FFEE32;
+}
 </style>

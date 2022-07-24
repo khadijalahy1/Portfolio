@@ -15,19 +15,16 @@ defineProps({
 
 
 <template>
-<img class="imgContour" :src="path">
+<img class="imgContours" :src="path">
 </template>
 <style>
-.imgContour {
+.imgContours {
   border-radius: 50%;
-  border:0.3em solid #FFEE32 ;
-  width: 15em;
-  height: auto;
-  
+  border:0.2em solid #FFEE32 ;
+  width: 6em;
+  height: 6em;
+  z-index: 2;
 
-}
-.imgContour:hover{
-  opacity: 0.6;
 }
 
 

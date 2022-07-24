@@ -8,10 +8,10 @@ export default {
             skillsTitle:"SKILLS",
             description:"Some of the things I've learned",
             skills:[
-                [{path:"/python.png",title:"Python",description:" Python is a language I use often and I have had significant experience with . on august 2021 I’ve used it during my summer internship and this year I’ve managed to solve over 300 problem on Leetcode using this language."},
+                [{path:"/python.png",title:"Python",description:" Python is a language I use often and I have had significant experience with . On august 2021, I’ve used it during my summer internship and this year I’ve managed to solve over 300 problem on Leetcode using this language."},
                 {path:"/cpp.png",title:"cpp",description:" I started using this language on 2022 when I started participating on competitive programming contests"},
-                {path:"/java.png",title:"Java",description:"We’ve used this language at university to learn many concepts such as Design patterns , Oriented object programming … and practice what we’ve learned on small side project"}],
-                [{path:"/nodes.png",title:"Node.js",description:" I have used Node.js in many projects where I’ve experienced with some of its modules such as Express"},
+                {path:"/java.png",title:"Java",description:"We’ve used this language in the university to learn many concepts such as Design patterns , Oriented object programming ,handling exceptions ... I practiced what we’ve learned on small side project "}],
+                [{path:"/nodes.png",title:"Node.js",description:" I have used Node.js in many projects where I’ve experienced with some of its modules such as Express ."},
                 {path:"/java-script.png",title:"JavaScript/Html/Css",description:" I often develop web applications using JavaScript,Html,CSS as well as Node.js and mySql for the backend"},
                 {path:"/sql-server.png",title:"Sql",description:"while working on side projects I often use  relational database management system to manage its data . I’m most familiar with MySql , PostgreSql and Sql plus"}],
                 [{path:"/react.png",title:"React Native",description:" I’ve used this framework to build a side project during a competition I’ve participated in . I’m also familiar with expo and React-Native Cli as those are the tools I used to build the app."}]
@@ -22,7 +22,7 @@ export default {
 }
 </script>
 <template>
-    <div class="skills">
+    <div class="skills" id="skills">
         <div class="componentTitle">{{skillsTitle}}</div>
         <div class="componentDescription">{{description}}</div>
         <div class="skillsContainer">
@@ -33,7 +33,7 @@ export default {
             
 
         </div>
-        <a class="ResumeButton" href="https://drive.google.com/file/d/1SMhx2Ke7iRl6PxMk56-PX_s8KR6DggfE/view">
+        <a  id="resume" class="ResumeButton" href="https://drive.google.com/file/d/1SMhx2Ke7iRl6PxMk56-PX_s8KR6DggfE/view">
            Resume
         </a>
      
@@ -54,6 +54,9 @@ export default {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
     font-size: large;
+}
+.ResumeButton:hover{
+    opacity: 0.7;
 }
 .skillsContainer{
     width: 100%;

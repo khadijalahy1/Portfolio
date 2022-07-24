@@ -10,6 +10,10 @@ export default {
     data(){
         return{
             title:"PROJECTS",
+            descriptionModel:"",
+            titleModel:"",
+            technologiesModel:"",
+            linkModel:"",
             show:false,
             open: false,
             description:"Some of the projects I've worked on ...",
@@ -18,42 +22,47 @@ export default {
             projects:[
                 [
                     {title:"Data4everyone",path:'/nasa.PNG',
-                    description:"Data4everyone  is a project built during Nasa Space Apps Challenge Hackathon . It’s a web app that aims to guide each user through his journey of searching for data until he’ll find the one that will meet exactly his need . This process is done throughout an ontology of filters displayed to the user a network.",
-                    technologies:"JavaScript, Node.js, Html, CSS",link:""},
-                    {title:"LogViewer",path:'/logViewer.jpg',technologies:"Bash script, Linux, Rsyslog, JavaScript , Node.js, MySql ",description:"LogViewer is a software that aims to display the logs of all the client machines connected to the server machine through Rsysylog protocol . This software allows to the administrator to view all the logs in real time in a platform that allows him to search , filter … . The Software has two sides : the client side that aims to connect the client to the server and the server side that aims to set up the server to start receining logs and displaying them on the platform that is launched automatically after the set up.",link:""},
-                    {title:"Delivry website",path:'/delivry-website.png',description:"this is an e-commerce website that aims to manage the commands of a delivery man clients could choose the store as well as the products they wanted to buy from it and the delivery man could view the commands and update their status through the admin space of the website",technologies:"Php, MySql,Apache",link:""}
+                    description:"Data4everyone  is a project built during Nasa Space Apps Challenge Hackathon . It’s a web app that aims to guide each user through his journey of searching for data until he’ll find the one that will meet exactly his need . This process is done throughout an ontology of filters displayed to the user as a network.",
+                    technologies:"JavaScript, Node.js, Html, CSS",link:"https://data4v1.herokuapp.com/"},
+                    {title:"LogViewer",path:'/logViewer.jpg',technologies:"Bash script, Linux, Rsyslog, JavaScript , Node.js, MySql ",description:"LogViewer is an open source software that connects multiple clients to a server machine through Rsyslog protocol. The software helps to set up both the server and the clients to start sending and receiving logs . It also provides a platform with multiple features (search, filter ) that'll allow the server to visualize the logs of the clients in a user interface.  ",link:"https://gitlab.com/GZPERRA/rlogviewer"},
+                    {title:"Delivry website",path:'/delivry-website.png',description:"It's an e-commerce website that allows the clients of a delivry man to accomplish their commands . The admin side of the website allows the delivery man to visualize and update their status .",technologies:"Php, MySql,Apache",link:"https://github.com/khadijalahy1/delivry_website"}
                 ],
                 [
-                    {title:"User Management Interface",path:'/userInterface.PNG',description:"This is a small university project to apply Java concepts learned in the university such as Object oriented programming , exceptions , System design and architecture , JVM internals - Java Build tools (maven, Gradle) , Unit testing (JUnit),Building dynamic web projects using Java JEE ",technologies:"Java ,PostgreSql , Hibernate",link:""},
-                    {title:"Envipeace Junior",technologies:"React Native, JavaScript, Node.js, Firebase, Expo , Android Studio",path:'/envipeace.PNG',description:"ENVIPEACE-JUNIOR  is a cross platform mobile app that aims to sensitize children towards environment through an interactive educational content such as quizzs videos …"},
-                    {title:"Report Generator",path:'/report.png',description:"this project was done under the context of a summer internship the goal was to understand the different operations that an employee was doing through a spreadsheet to make a software that will do the same work to generate the daily work saving him 20 min per day",technologies:"Python,Pyqt5 ,Fbs"}
+                    {title:"User Management Interface",path:'/userInterface.PNG',description:"This is a small university project to apply Java concepts learned in the university such as Object oriented programming , exceptions , System design and architecture , JVM internals - Java Build tools (maven, Gradle) , Unit testing (JUnit),Building dynamic web projects using Java JEE ",technologies:"Java ,PostgreSql , Hibernate",link:"https://gitlab.com/khadijalahy1/users_management_interface"},
+                    {title:"Envipeace Junior",technologies:"React Native, JavaScript, Node.js, Firebase, Expo , Android Studio",link:"https://github.com/khadijalahy1/ENVIPEACE_JUNIOR",path:'/envipeace.PNG',description:"ENVIPEACE-JUNIOR  is a cross platform mobile app that aims to sensitize children towards environment through an interactive educational content such as quizzs,videos …"},
+                    {title:"Report Generator",link:"",path:'/report.png',description:"this project was done under the context of a summer internship the goal was to understand the different operations that an employee was doing through a spreadsheet to make a software that will do the same work to generate the daily report saving him 20 min per day.",technologies:"Python,Pyqt5 ,Fbs"}
                     
                 ]
             ]
         }
+    },
+     methods: {
+    doShow: function(title,description,technologies,link) {
+      this.show=true;
+      this.titleModel=title;
+      this.descriptionModel=description;
+      this.technologiesModel=technologies;
+      this.linkModel=link;
     }
+  }
     
 }
 </script>
 
 <template>
-<div class="projectContainer">
-   
-    
+<div class="projectContainer" id="projects">
     <div class="titleProject">{{title}}</div>
     <div class="descriptionProject">{{description}}</div>
-    <div class="projects" >
+    <div class="projects">
         <div class="projectGroup" v-for="group in projects">
-        <projectContainer  v-for="project in group" :image="project.path" :title="project.title" @click="()=>{show=true}"/>
-        <VueModelProject v-if="show"  @click="()=>{show=false}" :project-name="project.title" :description="project.description" :technologies="project.technologies" :project-link="project.link"/> 
+        <projectContainer  v-for="project in group" :image="project.path" :title="project.title" @click="()=>{doShow(project.title,project.description,project.technologies,project.link)}"/>
+        <VueModelProject  v-if="show==true"  :title="titleModel" :technologies="technologiesModel"  :link="linkModel"  :description="descriptionModel" @click="()=>{show=false}"/> 
         </div>
     </div>
     <div class="update">
         {{textUpdate}}        
     </div>
-    
-
-    <a class="linkGit" href="">
+    <a class="linkGit" href="https://github.com/khadijalahy1">
                 {{callToGit}}
      </a>
 </div>
@@ -116,6 +125,9 @@ export default {
     background-color: #D9D9D9;
 
 
+}
+.linkGit:hover{
+    color: #FFD100;
 }
 .update{
     width: 60%;
